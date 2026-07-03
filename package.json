@@ -1,0 +1,17 @@
+{
+  "name": "forus",
+  "version": "0.1.0",
+  "private": true,
+  "description": "forUs - A privacy-first real-time communication platform.",
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "prettier": "latest"
+  }
+}

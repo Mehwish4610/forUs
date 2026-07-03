@@ -5,6 +5,7 @@ import { requestLogger } from "./middleware/requestLogger.js";
 import { notFound } from "./middleware/notFound.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import routes from "./routes/index.js";
+import cookieParser from "cookie-parser";
 
 export const app = express();
 
@@ -12,6 +13,8 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
+
+app.use(cookieParser());
 
 app.use("/api", routes);
 

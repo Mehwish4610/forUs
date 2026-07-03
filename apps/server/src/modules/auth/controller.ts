@@ -15,9 +15,10 @@ export function createGuestSession(req: Request, res: Response) {
     );
   }
 
-  const user = createGuestUser(parsed.data);
+  const {user, token} = createGuestUser(parsed.data);
 
   return sendSuccess(res, 201, "Guest session created successfully", {
     user,
+    token,
   });
 }

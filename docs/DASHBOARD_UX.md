@@ -81,7 +81,7 @@ Bottom Navigation
 
 # Design Principles
 
-The Dashboard follows the Aurora Design System.
+The Dashboard follows the  Design System.
 
 The layout should be:
 
@@ -131,7 +131,7 @@ Ready to start a conversation?
 
 ## Design
 
-- Aurora glass card
+-  glass card
 - Rounded corners
 - Soft gradient border
 - Minimal illustration on the right

@@ -1,10 +1,9 @@
 import type { Response } from "express";
 
-export function setAuthCookie(
-  res: Response,
-  token: string
-) {
-  res.cookie("forUs_session", token, {
+const AUTH_COOKIE_NAME = "forus_session";
+
+export function setAuthCookie(res: Response, token: string) {
+  res.cookie(AUTH_COOKIE_NAME, token, {
     httpOnly: true,
     secure: false,
     sameSite: "lax",
@@ -12,8 +11,8 @@ export function setAuthCookie(
   });
 }
 
-export function clearAuthCookie(
-  res: Response
-) {
-  res.clearCookie("forUs_session");
+export function clearAuthCookie(res: Response) {
+  res.clearCookie(AUTH_COOKIE_NAME);
 }
+
+export { AUTH_COOKIE_NAME };

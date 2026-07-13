@@ -1,4 +1,4 @@
-# Aurora Design System (ADS)
+#  Design System (ADS)
 
 **Project:** forUs  
 **Version:** 0.1.0  
@@ -11,7 +11,7 @@
 
 # Purpose
 
-The Aurora Design System (ADS) defines the visual language of **forUs**. It ensures consistency across the application by standardizing colors, typography, spacing, components, animations, and interaction patterns.
+The  Design System (ADS) defines the visual language of **forUs**. It ensures consistency across the application by standardizing colors, typography, spacing, components, animations, and interaction patterns.
 
 Every UI element within forUs must follow this design system.
 
@@ -19,7 +19,7 @@ Every UI element within forUs must follow this design system.
 
 # Design Philosophy
 
-Aurora is built around five core principles:
+ is built around five core principles:
 
 - Calm over flashy
 - Simplicity over complexity
@@ -110,9 +110,9 @@ The interface should feel modern, lightweight, elegant, and comfortable for long
 
 ---
 
-# Aurora Gradient
+#  Gradient
 
-Primary Aurora Gradient
+Primary  Gradient
 
 ```css
 linear-gradient(
@@ -139,7 +139,7 @@ It should **not** be overused. Most surfaces should remain dark to preserve read
 
 # Design Goal
 
-The Aurora Design System should make users feel:
+The  Design System should make users feel:
 
 - Calm
 - Comfortable
@@ -237,7 +237,7 @@ Typography should feel effortless to read during long conversations while mainta
 
 # Spacing & Layout System
 
-Aurora follows an **8-point grid system**.
+ follows an **8-point grid system**.
 
 Every spacing value, margin, padding, gap, and layout dimension should be based on multiples of **8 pixels** wherever practical.
 
@@ -420,7 +420,7 @@ Shadows should use low opacity and large blur rather than harsh dark edges.
 
 # Glassmorphism
 
-Aurora uses glassmorphism sparingly.
+ uses glassmorphism sparingly.
 
 Glass surfaces should remain readable at all times.
 
@@ -478,7 +478,7 @@ Avoid unnecessary movement.
 
 # Responsive Design
 
-Aurora is mobile-first.
+ is mobile-first.
 
 ## Breakpoints
 
@@ -497,7 +497,7 @@ Layouts should adapt gracefully without changing the user's mental model.
 
 # Accessibility
 
-Aurora follows accessibility-first design.
+ follows accessibility-first design.
 
 ## Requirements
 
@@ -550,21 +550,21 @@ Icons should support both light and dark themes.
 
 Before approving any new screen, verify:
 
-- Uses Aurora color tokens
+- Uses  color tokens
 - Uses typography scale
 - Uses spacing scale
 - Responsive
 - Accessible
 - Mobile friendly
 - Keyboard friendly
-- Consistent with Aurora UI
+- Consistent with  UI
 - Matches Product Charter
 
 ---
 
 # Summary
 
-Aurora is designed to create an interface that feels:
+ is designed to create an interface that feels:
 
 - Calm
 - Modern
@@ -576,4 +576,4 @@ Aurora is designed to create an interface that feels:
 
 Every design decision should reinforce these qualities.
 
-The Aurora Design System serves as the single source of truth for all UI and UX decisions across the forUs platform.
+The  Design System serves as the single source of truth for all UI and UX decisions across the forUs platform.

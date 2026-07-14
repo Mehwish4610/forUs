@@ -7,7 +7,7 @@ export default function WelcomePanel() {
 
   return (
     <GlassPanel className="mt-10 p-8">
-      <p className="text-sm text-emerald-300">Welcome back,</p>
+      <p className="text-sm text-emerald-300">Welcome,</p>
       <h2 className="mt-2 text-4xl font-bold">{user?.displayName} 👋</h2>
 
       <p className="mt-3 max-w-2xl text-slate-400">

@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id          String   @id @default(uuid())
+  displayName String
+  email       String?  @unique
+  avatarUrl   String?
+  isGuest     Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  ownedRooms  Room[]       @relation("RoomOwner")
+  memberships RoomMember[]
+}
+
+model Room {
+  id              String          @id @default(uuid())
+  name            String
+  description     String?
+  inviteCode      String          @unique
+  isPrivate       Boolean         @default(true)
+  roomType        RoomType        @default(CUSTOM)
+  retentionPolicy RetentionPolicy @default(UNTIL_EMPTY)
+  maxMembers      Int             @default(25)
+  ownerId         String
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  owner   User         @relation("RoomOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  members RoomMember[]
+
+  @@index([ownerId])
+}
+
+model RoomMember {
+  roomId   String
+  userId   String
+  role     RoomRole @default(MEMBER)
+  joinedAt DateTime @default(now())
+
+  room Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([roomId, userId])
+  @@index([userId])
+}
+
+enum RoomRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum RoomType {
+  STUDY
+  FAMILY
+  WORK
+  GAMING
+  FRIENDS
+  CUSTOM
+}
+
+enum RetentionPolicy {
+  UNTIL_EMPTY
+  ONE_DAY
+  SEVEN_DAYS
+  THIRTY_DAYS
+}

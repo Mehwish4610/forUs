@@ -1,11 +1,14 @@
 import type { Request, Response } from "express";
 import { sendError, sendSuccess } from "../../utils/apiResponse.js";
 import { setAuthCookie } from "../../utils/cookies.js";
-import { createGuestUser } from "./service.js";
+import {
+  createGuestUser,
+  getUserById,
+} from "./service.js";
 import { guestAuthSchema } from "./validator.js";
 import { clearAuthCookie } from "../../utils/cookies.js";
 
-export function createGuestSession(req: Request, res: Response) {
+export async function createGuestSession(req: Request, res: Response) {
   const parsed = guestAuthSchema.safeParse(req.body);
 
   if (!parsed.success) {
@@ -17,7 +20,7 @@ export function createGuestSession(req: Request, res: Response) {
     );
   }
 
-  const { user, token } = createGuestUser(parsed.data);
+  const { user, token } = await createGuestUser(parsed.data);
 
   setAuthCookie(res, token);
 
@@ -26,13 +29,25 @@ export function createGuestSession(req: Request, res: Response) {
   });
 }
 
-export function getCurrentUser(req: Request, res: Response) {
+export async function getCurrentUser(req: Request, res: Response) {
+  if (!req.user) {
+    return sendError(res, 401, "Authentication required");
+  }
+
+  const user = await getUserById(req.user.id);
+
+  if (!user) {
+    clearAuthCookie(res);
+    return sendError(res, 401, "User session no longer exists");
+  }
+
   return sendSuccess(res, 200, "Current user fetched successfully", {
-    user: req.user,
+    user,
   });
 }
 
-export function logoutUser(_req: Request, res: Response) {
+
+export async function logoutUser(_req: Request, res: Response) {
   clearAuthCookie(res);
 
   return sendSuccess(res, 200, "Logged out successfully");

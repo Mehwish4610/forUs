@@ -1,6 +1,5 @@
 import { useState } from "react";
-import AuroraBackground from "@/components/background/AuroraBackground";
-import Navbar from "@/components/layout/Navbar";
+import PublicLayout from "@/layouts/PublicLayout";
 import {
   Avatar,
   Badge,
@@ -16,10 +15,7 @@ export default function HomePage() {
   const { user } = useAuth();
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-white">
-      <AuroraBackground />
-      <Navbar />
-
+    <PublicLayout>
       <section className="flex min-h-screen items-start justify-center px-6 pb-28 pt-32">
         <div className="w-full text-center">
           <h1 className="text-7xl font-bold tracking-tight text-emerald-400 md:text-8xl">
@@ -92,6 +88,6 @@ export default function HomePage() {
         open={guestModalOpen}
         onClose={() => setGuestModalOpen(false)}
       />
-    </main>
+    </PublicLayout>
   );
 }

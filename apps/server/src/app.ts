@@ -6,6 +6,7 @@ import { notFound } from "./middleware/notFound.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import routes from "./routes/index.js";
 import cookieParser from "cookie-parser";
+import { prisma } from "./lib/prisma.js";
 
 export const app = express();
 
@@ -22,12 +23,19 @@ app.use(cookieParser());
 
 app.use("/api", routes);
 
-app.get("/health", (_req, res) => {
-  res.status(200).json({
-    status: "ok",
-    app: "forUs server",
-    timestamp: new Date().toISOString(),
-  });
+app.get("/health", async (_req, res, next) => {
+  try {
+    await prisma.$queryRaw`SELECT 1`;
+
+    res.status(200).json({
+      status: "ok",
+      app: "forUs server",
+      database: "connected",
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    next(error);
+  }
 });
 
 app.use(notFound);

@@ -10,6 +10,7 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "cookie-parser": "^1.4.7",
     "cors": "latest",
@@ -17,7 +18,7 @@
     "express": "latest",
     "helmet": "latest",
     "jsonwebtoken": "^9.0.3",
-    "prisma": "^7.8.0",
+    "pg": "^8.22.0",
     "uuid": "^14.0.1",
     "zod": "^4.4.3"
   },
@@ -27,7 +28,9 @@
     "@types/express": "latest",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "latest",
+    "@types/pg": "^8.20.0",
     "@types/uuid": "^11.0.0",
+    "prisma": "^7.8.0",
     "tsx": "latest",
     "typescript": "latest"
   }

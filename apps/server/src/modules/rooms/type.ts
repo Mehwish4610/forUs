@@ -16,6 +16,6 @@ export interface CreateRoomInput {
     | "THIRTY_DAYS";
 
   maxMembers: number;
-
-  isPrivate: boolean;
+  memberCount: number;
+  
 }

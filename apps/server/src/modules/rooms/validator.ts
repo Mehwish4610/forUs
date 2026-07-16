@@ -34,8 +34,19 @@ export const createRoomSchema = z.object({
     .int()
     .min(2)
     .max(100),
-
-  isPrivate: z.boolean(),
 });
 
 export type CreateRoomDto = z.infer<typeof createRoomSchema>;
+
+export const joinRoomSchema = z.object({
+  inviteCode: z
+    .string()
+    .trim()
+    .transform((value) => value.toUpperCase())
+    .refine(
+      (value) => /^[A-Z2-9]{8}$/.test(value),
+      "Invite code must be exactly 8 characters."
+    ),
+});
+
+export type JoinRoomDto = z.infer<typeof joinRoomSchema>;

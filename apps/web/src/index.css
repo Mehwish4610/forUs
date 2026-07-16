@@ -11,3 +11,28 @@ body,
 body {
   overflow-x: hidden;
 }
+
+.aurora-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(71, 85, 105, 0.9) rgba(15, 23, 42, 0.7);
+}
+
+.aurora-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.aurora-scrollbar::-webkit-scrollbar-track {
+  margin-block: 12px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.aurora-scrollbar::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(15, 23, 42, 0.7);
+  border-radius: 999px;
+  background: rgba(71, 85, 105, 0.9);
+}
+
+.aurora-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 1);
+}

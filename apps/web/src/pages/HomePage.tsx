@@ -1,11 +1,8 @@
 import { useState } from "react";
 import PublicLayout from "@/layouts/PublicLayout";
 import {
-  Avatar,
-  Badge,
   Button,
   Card,
-  GlassPanel,
 } from "@/components/ui";
 import GuestLoginModal from "@/features/auth/components/GuestLoginModal";
 import { useAuth } from "@/features/auth/context/AuthContext";
